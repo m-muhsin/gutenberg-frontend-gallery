@@ -24,3 +24,22 @@ function create_block_gutenberg_frontend_gallery_block_init() {
 	register_block_type( __DIR__ );
 }
 add_action( 'init', 'create_block_gutenberg_frontend_gallery_block_init' );
+
+/**
+ * Enqueue script to the footer.
+ *
+ * @return void
+ */
+function gfg_block_register_scripts() {
+
+	wp_register_script(
+		'gfg-block-script',
+		plugins_url( 'inc/script.js', __FILE__ ),
+		[ 'jquery' ],
+		false,
+		true
+	);
+
+	wp_enqueue_script( 'gfg-block-script' );
+}
+add_action( 'wp_enqueue_scripts', 'gfg_block_register_scripts' );
