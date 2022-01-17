@@ -1,1 +1,1 @@
-# gutenberg-frontend-gallery
+# Gutenberg Frontend Gallery
