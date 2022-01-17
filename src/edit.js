@@ -23,6 +23,8 @@ import { useState } from '@wordpress/element';
  */
 import './editor.scss';
 
+import Gallery from './components/gallery'
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -31,26 +33,4 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
-
-	const [active, setActive] = useState(0)
-
-	return (
-		<p {...useBlockProps()}>
-			{__(
-				'gutenberg-frontend-gallery'
-			)}
-			<div className="gallery-container">
-				<button onClick={() => setActive(active > 0 ? (active - 1) : 2)}>left</button>
-
-				<div className="gallery-image-container">
-					<img className={active === 0 ? 'active' : ''} src="https://i.picsum.photos/id/929/600/400.jpg?hmac=mmmeqhlQps4_kzupk6aqkGVVTotK6zectPzy67Weymo" alt="from lorem pixel" />
-					<img className={active === 1 ? 'active' : ''} src="https://i.picsum.photos/id/251/600/400.jpg?hmac=fgtXphw22xo5oD4Rr8iAOmLlSMBqp0nhdQdcR8ND1JU" alt="from lorem pixel" />
-					<img className={active === 2 ? 'active' : ''} src="https://i.picsum.photos/id/152/600/400.jpg?hmac=JSE6ueTxsG8dYsvNUg2Ck-LXuzP8Hb1ZCI-1Q4etOdQ" alt="from lorem pixel" />
-				</div>
-
-				<button onClick={() => setActive(active < 2 ? (active + 1) : 0)}>right</button>
-			</div>
-		</p>
-	);
-}
+export default Gallery;
