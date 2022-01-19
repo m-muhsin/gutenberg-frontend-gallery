@@ -13,5 +13,14 @@
 	"textdomain": "gutenberg-frontend-gallery",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
-	"style": "file:./build/style-index.css"
+	"style": "file:./build/style-index.css",
+	"attributes": {
+		"images": {
+			"type": "array",
+			"source": "attribute",
+			"selector": "#imagesContainer",
+			"attribute": "data-images",
+			"default": ""
+		}
+	}
 }

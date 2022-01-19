@@ -36,7 +36,7 @@ function gfg_block_register_scripts() {
 		'gfg-block-script',
 		plugins_url( 'inc/script.js', __FILE__ ),
 		[ 'jquery' ],
-		false,
+		true,
 		true
 	);
 

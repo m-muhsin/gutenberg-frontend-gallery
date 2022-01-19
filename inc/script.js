@@ -28,7 +28,7 @@ buttonLeft.addEventListener("click", function () {
 buttonRight.addEventListener("click", function () {
 
     console.log('right button clicked')
-    
+
     const images = Array.from(imageContainer.children);
 
     images.map((item, index) => {
@@ -46,3 +46,20 @@ buttonRight.addEventListener("click", function () {
 
     images[currentIndex].className = 'active';
 });
+
+// The element that contains the whole gallery, selected by ID.
+const imagesContainer = document.getElementById("imagesContainer");
+
+// The images array as a parsed JavaScript object.
+const imagesArray = JSON.parse(imagesContainer.getAttribute('data-images'));
+
+const arrayofImgs = imagesArray.map(image => {
+    var img1 = new Image();
+    img1.src = image.url;
+    img1.alt = image.alt;
+    img1.className = "active";
+
+    // The element that contains just the images.
+    let container = document.querySelector('.gallery-image-container')
+    container.appendChild(img1);
+})
