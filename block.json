@@ -20,7 +20,7 @@
 			"source": "attribute",
 			"selector": "#imagesContainer",
 			"attribute": "data-images",
-			"default": ""
+			"default": []
 		}
 	}
 }
