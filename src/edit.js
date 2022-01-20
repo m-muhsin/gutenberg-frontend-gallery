@@ -19,8 +19,6 @@ import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 
 import { Button } from '@wordpress/components';
 
-import { useSelect } from '@wordpress/data';
-
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
