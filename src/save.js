@@ -27,17 +27,23 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save({ attributes }) {
 
 	const { images } = attributes;
-	const dataImages = JSON.stringify(images);
+	const dataImages = [
+		...images
+	]
 
 	return (
 		<p {...useBlockProps.save()}>
-			<div class="gallery-container" id="imagesContainer" data-images={dataImages}>
+			<div className="gallery-container" id="imagesContainer" data-images={dataImages}>
 
-				<button class="btn-left">left</button>
+				<button className="btn-left">left</button>
 
-				<div class="gallery-image-container" />
+				<div className="gallery-image-container">
+					{
+						images.length > 0 ? images.map((image, index) => <img src={image} className={`gallery-image ${index === 0 ? "active" : ""}`} />) : ''
+					}
+				</div>
 
-				<button class="btn-right">right</button>
+				<button className="btn-right">right</button>
 			</div>
 		</p>
 

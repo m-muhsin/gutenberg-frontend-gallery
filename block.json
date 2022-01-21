@@ -18,9 +18,11 @@
 		"images": {
 			"type": "array",
 			"source": "attribute",
-			"selector": "#imagesContainer",
-			"attribute": "data-images",
-			"default": []
+			"selector": ".gallery-image",
+			"attribute": "src",
+			"default": [
+				"https://i.picsum.photos/id/27/600/400.jpg?hmac=4vTw3NSAlLaFPIkf5Zh7cmLaBK8O4m3Dwr9mbtjrHEc"
+			]
 		}
 	}
 }

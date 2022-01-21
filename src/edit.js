@@ -39,58 +39,53 @@ export default function Edit({ attributes, setAttributes }) {
 
     const ALLOWED_MEDIA_TYPES = ['image'];
 
-    const [active, setActive] = useState(0)
+    // const [active, setActive] = useState(0)
     const { images } = attributes;
+    let imagesArray = [
+        ...images
+    ]
 
     console.log('images', images)
-
-    // const { imageObjectsArray } = useSelect((select) => {
-    //     return {
-    //         imageObjectsArray: imagesArray.map(mediaId => select('core').getMedia(mediaId)),
-    //     }
-    // })
-
-    // console.log('imageObjectsArray', imageObjectsArray)
 
     return (
         <p {...useBlockProps()}>
             {__(
                 'gutenberg-frontend-gallery'
             )}
-            <div className="gallery-container">
-                <button onClick={() => setActive(active > 0 ? (active - 1) : 2)}>left</button>
 
-                <button onClick={() => setActive(active < 2 ? (active + 1) : 0)}>right</button>
+            <button class="btn-left">left</button>
+
+            <div class="gallery-image-container">
+                {
+                    imagesArray.length > 0 ? imagesArray.map((image, index) => <img src={image} className={`gallery-image ${index === 0 ? "active" : ""}`} />) : ''
+                }
             </div>
 
-            {/* <div
-                className="gts__picture__image"
-                style={{
-                    backgroundImage: `url(${testimonial.image})`,
-                }}
-                onClick={open}
-            /> */}
+            <button class="btn-right">right</button>
 
             <MediaUploadCheck>
                 <MediaUpload
+
                     onSelect={(media) => {
-                        console.log('selected ' + media);
-                        console.log('media', media)
-                        const mediaObjectsArray = [
-                            ...images,
-                            {
-                                id: media.id,
-                                url: media.url,
-                                alt: media.alt
-                            }
-                        ];
-                        setAttributes({ images: mediaObjectsArray })
+                        console.log('images 1', images)
+                        console.log('images 2', images)
+
+                        imagesArray.push(media.url)
+
+                        setAttributes({
+                            images: imagesArray
+                        })
+
                     }}
+
                     allowedTypes={ALLOWED_MEDIA_TYPES}
+
                     value={images ? images[images.length - 1] : 0}
+
                     render={({ open }) => (
                         <Button onClick={open}>Open Media Library</Button>
                     )}
+
                 />
             </MediaUploadCheck>
         </p>
