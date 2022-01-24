@@ -41,9 +41,6 @@ export default function Edit({ attributes, setAttributes }) {
 
     // const [active, setActive] = useState(0)
     const { images } = attributes;
-    let imagesArray = [
-        ...images
-    ]
 
     console.log('images', images)
 
@@ -57,7 +54,7 @@ export default function Edit({ attributes, setAttributes }) {
 
             <div class="gallery-image-container">
                 {
-                    imagesArray.length > 0 ? imagesArray.map((image, index) => <img src={image} className={`gallery-image ${index === 0 ? "active" : ""}`} />) : ''
+                    images.length > 0 ? images.map((image, index) => <img src={image.url} alt={image.alt} className={`gallery-image active`} />) : ''
                 }
             </div>
 
@@ -70,21 +67,26 @@ export default function Edit({ attributes, setAttributes }) {
                         console.log('images 1', images)
                         console.log('images 2', images)
 
-                        imagesArray.push(media.url)
+                        let updateImages = {
+                            url: media.url, alt: media.alt
+                        }
 
                         setAttributes({
-                            images: imagesArray
-                        })
+                            images: [
+                                ...images,
+                                updateImages
+                            ]
+                    })
 
                     }}
 
-                    allowedTypes={ALLOWED_MEDIA_TYPES}
+                allowedTypes={ALLOWED_MEDIA_TYPES}
 
-                    value={images ? images[images.length - 1] : 0}
+                    // value={images ? images[images.length - 1] : null}
 
-                    render={({ open }) => (
-                        <Button onClick={open}>Open Media Library</Button>
-                    )}
+                render={({ open }) => (
+                    <Button onClick={open}>Open Media Library</Button>
+                )}
 
                 />
             </MediaUploadCheck>

@@ -33,17 +33,17 @@ export default function save({ attributes }) {
 
 	return (
 		<p {...useBlockProps.save()}>
-			<div className="gallery-container" id="imagesContainer" data-images={dataImages}>
+			<div class="gallery-container" id="imagesContainer" data-images={dataImages}>
 
-				<button className="btn-left">left</button>
+				<button class="btn-left">left</button>
 
-				<div className="gallery-image-container">
+				<div class="gallery-image-container">
 					{
-						images.length > 0 ? images.map((image, index) => <img src={image} className={`gallery-image ${index === 0 ? "active" : ""}`} />) : ''
+						images.length > 0 ? images.map((image, index) => <img className={index === 0 ? "gallery-image active" : "gallery-image"} src={image.url} alt={image.alt} />) : ''
 					}
 				</div>
 
-				<button className="btn-right">right</button>
+				<button class="btn-right">right</button>
 			</div>
 		</p>
 

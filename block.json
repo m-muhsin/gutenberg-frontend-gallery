@@ -17,11 +17,25 @@
 	"attributes": {
 		"images": {
 			"type": "array",
-			"source": "attribute",
-			"selector": ".gallery-image",
-			"attribute": "src",
+			"source": "query",
+			"selector": "img.gallery-image",
+			"query": {
+				"url": {
+					"type": "string",
+					"source": "attribute",
+					"attribute": "src"
+				},
+				"alt": {
+					"type": "string",
+					"source": "attribute",
+					"attribute": "alt"
+				}
+			},
 			"default": [
-				"https://i.picsum.photos/id/27/600/400.jpg?hmac=4vTw3NSAlLaFPIkf5Zh7cmLaBK8O4m3Dwr9mbtjrHEc"
+				{
+					"url": "http://learn-gutenberg-2.local/wp-content/uploads/2022/01/944-600x400-1.jpeg",
+					"alt": "some alt"
+				}
 			]
 		}
 	}
