@@ -46,19 +46,16 @@ export default function Edit({ attributes, setAttributes }) {
 
     return (
         <p {...useBlockProps()}>
-            {__(
-                'gutenberg-frontend-gallery'
-            )}
-
-            <button class="btn-left">left</button>
-
+            <h3>
+                {__(
+                    'Gutenberg Frontend Gallery'
+                )}
+            </h3>
             <div class="gallery-image-container">
                 {
-                    images.length > 0 ? images.map((image, index) => <img src={image.url} alt={image.alt} className={`gallery-image active`} />) : ''
+                    images.length > 0 ? images.map((image, index) => <img src={image.url} alt={image.alt} className={`gallery-image active`} />) : 'No images have been added to the Gallery.'
                 }
             </div>
-
-            <button class="btn-right">right</button>
 
             <MediaUploadCheck>
                 <MediaUpload
@@ -76,17 +73,17 @@ export default function Edit({ attributes, setAttributes }) {
                                 ...images,
                                 updateImages
                             ]
-                    })
+                        })
 
                     }}
 
-                allowedTypes={ALLOWED_MEDIA_TYPES}
+                    allowedTypes={ALLOWED_MEDIA_TYPES}
 
                     // value={images ? images[images.length - 1] : null}
 
-                render={({ open }) => (
-                    <Button onClick={open}>Open Media Library</Button>
-                )}
+                    render={({ open }) => (
+                        <Button onClick={open}>Open Media Library</Button>
+                    )}
 
                 />
             </MediaUploadCheck>

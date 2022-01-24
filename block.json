@@ -31,12 +31,7 @@
 					"attribute": "alt"
 				}
 			},
-			"default": [
-				{
-					"url": "http://learn-gutenberg-2.local/wp-content/uploads/2022/01/944-600x400-1.jpeg",
-					"alt": "some alt"
-				}
-			]
+			"default": []
 		}
 	}
 }

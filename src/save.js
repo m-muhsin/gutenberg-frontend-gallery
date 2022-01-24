@@ -22,8 +22,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-
-
 export default function save({ attributes }) {
 
 	const { images } = attributes;
@@ -35,15 +33,24 @@ export default function save({ attributes }) {
 		<p {...useBlockProps.save()}>
 			<div class="gallery-container" id="imagesContainer" data-images={dataImages}>
 
-				<button class="btn-left">left</button>
+				{
+					images.length > 1 &&
+					<button class="btn-left">left</button>
+				}
 
 				<div class="gallery-image-container">
 					{
-						images.length > 0 ? images.map((image, index) => <img className={index === 0 ? "gallery-image active" : "gallery-image"} src={image.url} alt={image.alt} />) : ''
+						images.length > 0 ?
+							images.map((image, index) => <img className={index === 0 ? "gallery-image active" : "gallery-image"} src={image.url} alt={image.alt} />)
+							:
+							'No images have been added to the Gallery.'
 					}
 				</div>
 
-				<button class="btn-right">right</button>
+				{
+					images.length > 1 &&
+					<button class="btn-right">right</button>
+				}
 			</div>
 		</p>
 
