@@ -34,6 +34,14 @@ div#imagesContainer {
 	display: none;
 }
 
-.wp-block-create-block-gutenberg-frontend-gallery .gallery-image-container img {
-	height: 160px;	
+.wp-block-create-block-gutenberg-frontend-gallery {
+	.gallery-image-container {
+			width: 640px;
+			flex-wrap: wrap;
+
+		img {
+			height: 130px;
+			margin: 5px;
+		}
+	}
 }
