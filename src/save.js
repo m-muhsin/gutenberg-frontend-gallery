@@ -35,7 +35,7 @@ export default function save({ attributes }) {
 
 				{
 					images.length > 1 &&
-					<button class="btn-left">left</button>
+					<button class="btn-left">previous</button>
 				}
 
 				<div class="gallery-image-container">
@@ -49,7 +49,7 @@ export default function save({ attributes }) {
 
 				{
 					images.length > 1 &&
-					<button class="btn-right">right</button>
+					<button class="btn-right">next</button>
 				}
 			</div>
 		</p>
