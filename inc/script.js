@@ -14,11 +14,12 @@ const buttonRight = document.getElementsByClassName("btn-right")[0];
 
 // Left button click event
 buttonLeft.addEventListener("click", function () {
+
     imagesArray.map((item, index) => {
         if (item.classList.contains('active')) {
             currentIndex = index;
         }
-        item.className = ''
+        item.className = 'gallery-image'
     })
 
     currentIndex--;
@@ -27,19 +28,17 @@ buttonLeft.addEventListener("click", function () {
         currentIndex = imagesArray.length - 1;
     }
 
-    imagesArray[currentIndex].className = 'active';
+    imagesArray[currentIndex].className = 'gallery-image active';
 });
 
 // Right button click event
 buttonRight.addEventListener("click", function () {
 
-    console.log('right button clicked')
-
     imagesArray.map((item, index) => {
         if (item.classList.contains('active')) {
             currentIndex = index;
         }
-        item.className = ''
+        item.className = 'gallery-image'
     })
 
     currentIndex++;
@@ -48,5 +47,5 @@ buttonRight.addEventListener("click", function () {
         currentIndex = 0;
     }
 
-    imagesArray[currentIndex].className = 'active';
+    imagesArray[currentIndex].className = 'gallery-image active';
 });
