@@ -15,12 +15,7 @@ const buttonRight = document.getElementsByClassName("btn-right")[0];
 // Left button click event
 buttonLeft.addEventListener("click", function () {
 
-    imagesArray.map((item, index) => {
-        if (item.classList.contains('active')) {
-            currentIndex = index;
-        }
-        item.className = 'gallery-image'
-    })
+    currentIndex = getCurrentIndex();
 
     currentIndex--;
 
@@ -34,12 +29,7 @@ buttonLeft.addEventListener("click", function () {
 // Right button click event
 buttonRight.addEventListener("click", function () {
 
-    imagesArray.map((item, index) => {
-        if (item.classList.contains('active')) {
-            currentIndex = index;
-        }
-        item.className = 'gallery-image'
-    })
+    currentIndex = getCurrentIndex();
 
     currentIndex++;
 
@@ -49,3 +39,17 @@ buttonRight.addEventListener("click", function () {
 
     imagesArray[currentIndex].className = 'gallery-image active';
 });
+
+function getCurrentIndex() {
+
+    let ctIdx;
+    imagesArray.map((item, index) => {
+        if (item.classList.contains('active')) {
+            ctIdx = index;
+        }
+        item.className = 'gallery-image'
+    })
+
+    return ctIdx;
+
+}
