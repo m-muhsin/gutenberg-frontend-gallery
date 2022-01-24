@@ -50,5 +50,3 @@ buttonRight.addEventListener("click", function () {
 
     imagesArray[currentIndex].className = 'active';
 });
-
-

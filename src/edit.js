@@ -39,10 +39,7 @@ export default function Edit({ attributes, setAttributes }) {
 
     const ALLOWED_MEDIA_TYPES = ['image'];
 
-    // const [active, setActive] = useState(0)
     const { images } = attributes;
-
-    console.log('images', images)
 
     return (
         <p {...useBlockProps()}>
@@ -53,7 +50,9 @@ export default function Edit({ attributes, setAttributes }) {
             </h3>
             <div class="gallery-image-container">
                 {
-                    images.length > 0 ? images.map((image, index) => <img src={image.url} alt={image.alt} className={`gallery-image active`} />) : 'No images have been added to the Gallery.'
+                    images.length > 0 
+                    ? images.map((image, index) => <img src={image.url} alt={image.alt} className={`gallery-image active`} />)
+                    : 'No images have been added to the Gallery.'
                 }
             </div>
 
@@ -61,9 +60,6 @@ export default function Edit({ attributes, setAttributes }) {
                 <MediaUpload
 
                     onSelect={(media) => {
-                        console.log('images 1', images)
-                        console.log('images 2', images)
-
                         let updateImages = {
                             url: media.url, alt: media.alt
                         }
@@ -78,8 +74,6 @@ export default function Edit({ attributes, setAttributes }) {
                     }}
 
                     allowedTypes={ALLOWED_MEDIA_TYPES}
-
-                    // value={images ? images[images.length - 1] : null}
 
                     render={({ open }) => (
                         <Button onClick={open}>Open Media Library</Button>

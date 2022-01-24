@@ -35,21 +35,20 @@ export default function save({ attributes }) {
 
 				{
 					images.length > 1 &&
-					<button class="btn-left">previous</button>
+					<button class="btn-left">Previous</button>
 				}
 
 				<div class="gallery-image-container">
 					{
-						images.length > 0 ?
-							images.map((image, index) => <img className={index === 0 ? "gallery-image active" : "gallery-image"} src={image.url} alt={image.alt} />)
-							:
-							'No images have been added to the Gallery.'
+						images.length > 0
+						? images.map((image, index) => <img className={index === 0 ? "gallery-image active" : "gallery-image"} src={image.url} alt={image.alt} />)
+						: 'No images have been added to the Gallery.'
 					}
 				</div>
 
 				{
 					images.length > 1 &&
-					<button class="btn-right">next</button>
+					<button class="btn-right">Next</button>
 				}
 			</div>
 		</p>
