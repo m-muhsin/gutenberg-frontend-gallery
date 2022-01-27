@@ -45,3 +45,13 @@ div#imagesContainer {
 		}
 	}
 }
+
+.gallery-image-container {
+	width: 640px;
+	flex-wrap: wrap;
+
+	img {
+		height: 420px;
+		margin: auto;
+	}
+}
