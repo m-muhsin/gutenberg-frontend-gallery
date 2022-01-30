@@ -45,3 +45,24 @@ div#imagesContainer {
 		}
 	}
 }
+
+.remove-btn {
+	border-radius: 50%;
+    position: absolute;
+    background: black;
+    color: white;
+    top: -18px;
+    right: -14px;
+    width: 36px;
+    text-align: center;
+    height: 36px;
+    padding: 0;
+	cursor: pointer;
+}
+
+.single-image-container {
+  border: 2px solid Black;
+  margin: 20px 20px 20px 20px;
+  overflow: visible;
+  position: relative;
+}

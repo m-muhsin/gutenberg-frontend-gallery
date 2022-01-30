@@ -41,6 +41,17 @@ export default function Edit({ attributes, setAttributes }) {
 
     const { images } = attributes;
 
+    const removeImg = (removeIndex) => {
+        const newImages = images.filter((img, i) => {
+            if (removeIndex !== i) {
+                return img;
+            }
+        })
+        setAttributes({
+            images: newImages
+        })
+    }
+
     return (
         <p {...useBlockProps()}>
             <h3>
@@ -48,11 +59,16 @@ export default function Edit({ attributes, setAttributes }) {
                     'Gutenberg Frontend Gallery'
                 )}
             </h3>
-            <div class="gallery-image-container">
+            <div className="gallery-image-container">
                 {
-                    images.length > 0 
-                    ? images.map((image, index) => <img src={image.url} alt={image.alt} className={`gallery-image active`} />)
-                    : 'No images have been added to the Gallery.'
+                    images.length > 0
+                        ? images.map((image, index) =>
+                            <div className="single-image-container">
+                                <span className="remove-btn" onClick={() => removeImg(index)}>x</span>
+                                <img className={`gallery-image active`} src={image.url} alt={image.alt} />
+                            </div>
+                        )
+                        : 'No images have been added to the Gallery.'
                 }
             </div>
 
