@@ -20,6 +20,7 @@
 		"@wordpress/media-utils": "^3.0.5"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^19.2.2"
+		"@wordpress/scripts": "^19.2.2",
+		"mini-css-extract-plugin": "2.4.5"
 	}
 }
