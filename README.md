@@ -2,8 +2,9 @@
 
 This block allows you to have a slideshow in the frontend of a WordPress site using the Block Editor (Gutenberg).
 
-### Editor
-![image](https://user-images.githubusercontent.com/11702935/150742590-765a2736-9bd2-4b44-996b-eb863e3bfd13.png)
+## Editor
+![image](https://user-images.githubusercontent.com/11702935/151692473-c5f37ccb-4369-438f-b680-719b9d0dee4f.png)
 
-### Frontend
-![image](https://user-images.githubusercontent.com/11702935/150742650-7610e12b-8a53-4c13-9c33-c9f4b832e86f.png)
+## Frontend
+![image](https://user-images.githubusercontent.com/11702935/151692487-4b611460-2a60-46ab-913c-b57f34c15e56.png)
+
