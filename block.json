@@ -8,7 +8,8 @@
 	"icon": "smiley",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"supports": {
-		"html": false
+		"html": false,
+		"align": true
 	},
 	"textdomain": "gutenberg-frontend-gallery",
 	"editorScript": "file:./build/index.js",
@@ -32,6 +33,10 @@
 				}
 			},
 			"default": []
+		},
+		"blockAlignment": {
+			"type": "string",
+			"default": "wide"
 		}
 	}
 }
