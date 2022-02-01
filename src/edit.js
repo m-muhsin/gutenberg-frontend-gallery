@@ -75,15 +75,25 @@ export default function Edit({ attributes, setAttributes }) {
             <MediaUploadCheck>
                 <MediaUpload
 
+                    multiple={true}
+
                     onSelect={(media) => {
-                        let updateImages = {
-                            url: media.url, alt: media.alt
-                        }
+
+                        let updatedImages = [];
+
+                        media.forEach((mediaItem) => {
+                            updatedImages = [
+                                ...updatedImages,
+                                {
+                                    url: mediaItem.url, alt: mediaItem.alt
+                                }
+                            ]
+                        })
 
                         setAttributes({
                             images: [
                                 ...images,
-                                updateImages
+                                ...updatedImages
                             ]
                         })
 
