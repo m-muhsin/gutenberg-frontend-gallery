@@ -34,8 +34,8 @@ function gfg_block_register_scripts() {
 
 	wp_register_script(
 		'gfg-block-script',
-		plugins_url( 'inc/script.js', __FILE__ ),
-		[ 'jquery' ],
+		plugins_url( 'src/script.js', __FILE__ ),
+		[],
 		true,
 		true
 	);
