@@ -5,9 +5,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-gutenberg-frontend-gallery {
-	padding: 2px;
-}
+// .wp-block-create-block-gutenberg-frontend-gallery {
+// 	padding: 2px;
+// }
 
 div#imagesContainer {
     max-width: 70rem;
@@ -24,7 +24,7 @@ div#imagesContainer {
 	}
 }
 
-.gallery-image-container {
+.gallery-image-container, .gallery-image-container--edit {
 	display: flex;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -34,21 +34,18 @@ div#imagesContainer {
 	display: none;
 }
 
-.wp-block-create-block-gutenberg-frontend-gallery {
-	.gallery-image-container {
-			width: 710px;
-			flex-wrap: wrap;
+.gallery-image-container--edit {
+		width: 710px;
+		flex-wrap: wrap;
 
-		img {
-			height: 130px;
-			margin: 5px;
-		}
+	.single-image-container img {
+		height: 130px;
+		margin: 5px;
 	}
 }
 
 .gallery-image-container {
 	width: 640px;
-	flex-wrap: wrap;
 
 	img {
 		height: 420px;
@@ -84,7 +81,7 @@ div#imagesContainer {
 
 #imagesContainer {
 	button.btn-right {
-		margin-left: -130px;
+		margin-left: -123px;
 		background: linear-gradient(90deg, transparent, #000000ba);
 		&:hover, &:focus {
 			color: white;
@@ -94,7 +91,7 @@ div#imagesContainer {
 	}
 
 	button.btn-left {
-		margin-right: -130px;
+		margin-right: -123px;
 		z-index: 10;
 		background: linear-gradient(90deg, #000000ba, transparent);
 		&:hover, &:focus {

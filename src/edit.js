@@ -59,7 +59,7 @@ export default function Edit({ attributes, setAttributes }) {
                     'Gutenberg Frontend Gallery'
                 )}
             </h3>
-            <div className="gallery-image-container">
+            <div className="gallery-image-container--edit">
                 {
                     images.length > 0
                         ? images.map((image, index) =>

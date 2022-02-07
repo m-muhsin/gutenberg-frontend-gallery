@@ -30,7 +30,7 @@ export default function save({ attributes }) {
 	]
 
 	return (
-		<p {...useBlockProps.save()}>
+		<div {...useBlockProps.save()}>
 			<div class="gallery-container" id="imagesContainer" data-images={dataImages}>
 
 				{
@@ -51,7 +51,7 @@ export default function save({ attributes }) {
 					<button class="btn-right">Next</button>
 				}
 			</div>
-		</p>
+		</div>
 
 	);
 }
