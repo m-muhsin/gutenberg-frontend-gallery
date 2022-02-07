@@ -93,3 +93,26 @@ div#imagesContainer {
 .btn-right:hover {
     background: #ededed;
 }
+
+#imagesContainer {
+	button.btn-right {
+		margin-left: -130px;
+		background: linear-gradient(90deg, transparent, #000000ba);
+		&:hover, &:focus {
+			color: white;
+			background: linear-gradient(90deg, transparent, black);
+			outline: none;;
+		}
+	}
+
+	button.btn-left {
+		margin-right: -130px;
+		z-index: 10;
+		background: linear-gradient(90deg, #000000ba, transparent);
+		&:hover, &:focus {
+			color: white;
+			background: linear-gradient(90deg, black, transparent);
+			outline: none;
+		}
+	}
+}
