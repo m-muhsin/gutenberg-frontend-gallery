@@ -64,7 +64,7 @@ export default function Edit({ attributes, setAttributes }) {
                     images.length > 0
                         ? images.map((image, index) =>
                             <div className="single-image-container">
-                                <span className="remove-btn" onClick={() => removeImg(index)}>x</span>
+                                <span className="remove-btn" onClick={() => removeImg(index)}>&times;</span>
                                 <img className={`gallery-image active`} src={image.url} alt={image.alt} />
                             </div>
                         )
