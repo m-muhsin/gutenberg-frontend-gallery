@@ -5,26 +5,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-// .wp-block-create-block-gutenberg-frontend-gallery {
-// 	padding: 2px;
-// }
-
-div#imagesContainer {
-    max-width: 70rem;
-}
-
 .gallery-container {
 	display: flex;
 	padding: 10px;
-	
-	button {
-		width: 120px;
-		padding: 0;
-		border: none;
-	}
 }
 
-.gallery-image-container, .gallery-image-container--edit {
+.gallery-image-container {
 	display: flex;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -34,23 +20,22 @@ div#imagesContainer {
 	display: none;
 }
 
-.gallery-image-container--edit {
-		flex-wrap: wrap;
-
-	.single-image-container img {
-		height: 108px;
-		margin: 5px;
-	}
-}
-
 .gallery-image-container {
-	width: 640px;
-
 	img {
 		height: 420px;
 		margin: auto;
 	}
 }
+
+.single-image-container {
+	border: 2px solid Black;
+	margin: 10px;
+	overflow: visible;
+	position: relative;
+}
+
+
+// Buttons
 
 .remove-btn {
 	border-radius: 50%;
@@ -66,21 +51,21 @@ div#imagesContainer {
 	cursor: pointer;
 }
 
-.single-image-container {
-  border: 2px solid Black;
-  margin: 10px;
-  overflow: visible;
-  position: relative;
-}
-
 .btn-left:hover,
 .btn-right:hover {
     background: #ededed;
 }
 
 #imagesContainer {
+
+	button.btn-left, button.btn-right {
+		width: 120px;
+		padding: 0;
+		border: none;
+	}
+
 	button.btn-right {
-		margin-left: -123px;
+		margin-left: -120px;
 		background: linear-gradient(90deg, transparent, #000000ba);
 		&:hover, &:focus {
 			color: white;
@@ -90,7 +75,7 @@ div#imagesContainer {
 	}
 
 	button.btn-left {
-		margin-right: -123px;
+		margin-right: -120px;
 		z-index: 10;
 		background: linear-gradient(90deg, #000000ba, transparent);
 		&:hover, &:focus {
