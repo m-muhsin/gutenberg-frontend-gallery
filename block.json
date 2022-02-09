@@ -9,7 +9,11 @@
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"supports": {
 		"html": false,
-		"align": true
+		"align": [
+			"center",
+			"wide",
+			"full"
+		]
 	},
 	"textdomain": "gutenberg-frontend-gallery",
 	"editorScript": "file:./build/index.js",
