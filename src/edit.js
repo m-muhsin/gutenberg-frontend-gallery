@@ -19,6 +19,10 @@ import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 
 import { Button } from '@wordpress/components';
 
+import { Icon } from '@wordpress/components';
+ 
+const PlusIcon = () => <Icon icon="plus" />;
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -102,7 +106,7 @@ export default function Edit({ attributes, setAttributes }) {
                     allowedTypes={ALLOWED_MEDIA_TYPES}
 
                     render={({ open }) => (
-                        <Button className="add-image" variant="secondary" onClick={open}>Add Gallery Image</Button>
+                        <Button icon={PlusIcon} className="add-image" variant="secondary" onClick={open}>Add Gallery Image</Button>
                     )}
 
                 />
