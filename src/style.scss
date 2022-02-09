@@ -7,20 +7,20 @@
 
 .gallery-container {
 	display: flex;
-	padding: 10px;
 }
 
 .gallery-image-container {
 	display: flex;
 	width: 100%;
+	
 	img {
 		margin: auto;
 		width: 100%;
 	}
-}
 
-.gallery-image-container img:not(.active) {
-	display: none;
+	img:not(.active) {
+		display: none;
+	}
 }
 
 .single-image-container {
@@ -47,13 +47,7 @@
 	cursor: pointer;
 }
 
-.btn-left:hover,
-.btn-right:hover {
-    background: #ededed;
-}
-
 #imagesContainer {
-
 	button.btn-left, button.btn-right {
 		width: 120px;
 		padding: 0;
