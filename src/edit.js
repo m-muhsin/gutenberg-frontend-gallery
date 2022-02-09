@@ -58,9 +58,9 @@ export default function Edit({ attributes, setAttributes }) {
 
     return (
         <p {...useBlockProps()}>
-            <h3>
+            <h3 className="block-title">
                 {__(
-                    'Gutenberg Frontend Gallery'
+                    'Gutenberg Slideshow'
                 )}
             </h3>
             <div className="gallery-image-container--edit">
