@@ -15,3 +15,24 @@
         margin: 5px;
     }
 }
+
+// Buttons
+
+.remove-btn {
+	border-radius: 50%;
+    position: absolute;
+    background: black;
+    color: white;
+    top: -18px;
+    right: -14px;
+    width: 36px;
+    text-align: center;
+    height: 36px;
+    padding: 0;
+	cursor: pointer;
+}
+
+button.add-image {
+    display: flex;
+    margin: auto;
+}

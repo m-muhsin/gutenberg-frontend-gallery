@@ -102,7 +102,7 @@ export default function Edit({ attributes, setAttributes }) {
                     allowedTypes={ALLOWED_MEDIA_TYPES}
 
                     render={({ open }) => (
-                        <Button onClick={open}>Open Media Library</Button>
+                        <Button className="add-image" variant="secondary" onClick={open}>Add Gallery Image</Button>
                     )}
 
                 />

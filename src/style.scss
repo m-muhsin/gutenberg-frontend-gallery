@@ -33,29 +33,15 @@
 
 // Buttons
 
-.remove-btn {
-	border-radius: 50%;
-    position: absolute;
-    background: black;
-    color: white;
-    top: -18px;
-    right: -14px;
-    width: 36px;
-    text-align: center;
-    height: 36px;
-    padding: 0;
-	cursor: pointer;
-}
-
 #imagesContainer {
 	button.btn-left, button.btn-right {
-		width: 120px;
+		width: 100px;
 		padding: 0;
 		border: none;
 	}
 
 	button.btn-right {
-		margin-left: -120px;
+		margin-left: -100px;
 		background: linear-gradient(90deg, transparent, #000000ba);
 		&:hover, &:focus {
 			color: white;
@@ -65,7 +51,7 @@
 	}
 
 	button.btn-left {
-		margin-right: -120px;
+		margin-right: -100px;
 		z-index: 10;
 		background: linear-gradient(90deg, #000000ba, transparent);
 		&:hover, &:focus {
