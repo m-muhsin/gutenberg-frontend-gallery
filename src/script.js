@@ -1,5 +1,5 @@
 function Slider(slider) {
-    console.log('slider',slider)
+
     if (!(slider instanceof Element)) {
         throw new Error('No slider passed in.');
     }
@@ -14,7 +14,6 @@ function Slider(slider) {
 
     const prevButton = slider.querySelector('.goToPrev');
     const nextButton = slider.querySelector('.goToNext');
-    console.log('prevButton',prevButton)
 
     function startSlider() {
 
@@ -22,8 +21,6 @@ function Slider(slider) {
         prev = current.previousElementSibling || slides.lastElementChild;
         next = current.nextElementSibling || slides.firstElementChild;
 
-
-        console.log({ current, prev, next })
     }
 
     function applyClasses() {
@@ -62,5 +59,5 @@ function Slider(slider) {
     nextButton.addEventListener('click', move);
 }
 
-const allSliders = Array.from(document.querySelectorAll('.gallery-container'));
+const allSliders = Array.from(document.querySelectorAll('.slides-container'));
 allSliders.forEach(slider => new Slider(slider));

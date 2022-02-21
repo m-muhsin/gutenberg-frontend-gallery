@@ -31,13 +31,12 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...useBlockProps.save()}>
-			<div class="gallery-container" id="imagesContainer" data-images={dataImages}>
-
+			<div class="slides-container" data-images={dataImages}>
 
 				<div class="slides">
 					{
 						images.length > 0
-						? images.map((image, index) => <img className={index === 0 ? "gallery-image slide current" : "gallery-image slide"} src={image.url} alt={image.alt} />)
+						? images.map(image => <img className="slide" src={image.url} alt={image.alt} />)
 						: 'No images have been added to the Gallery.'
 					}
 				</div>
