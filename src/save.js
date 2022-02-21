@@ -24,7 +24,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({ attributes }) {
 
-	const { images } = attributes;
+	const { images, minHeight } = attributes;
 	const dataImages = [
 		...images
 	]
@@ -33,11 +33,11 @@ export default function save({ attributes }) {
 		<div {...useBlockProps.save()}>
 			<div class="slides-container" data-images={dataImages}>
 
-				<div class="slides">
+				<div class="slides" style={minHeight ? { minHeight } : false}>
 					{
 						images.length > 0
-						? images.map(image => <img className="slide" src={image.url} alt={image.alt} />)
-						: 'No images have been added to the Gallery.'
+							? images.map(image => <img className="slide" src={image.url} alt={image.alt} />)
+							: 'No images have been added to the Gallery.'
 					}
 				</div>
 

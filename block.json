@@ -37,6 +37,13 @@
 				}
 			},
 			"default": []
+		},
+		"minHeight": {
+			"type": "string",
+			"default": 360
+		},
+		"minHeightUnit": {
+			"type": "string"
 		}
 	}
 }

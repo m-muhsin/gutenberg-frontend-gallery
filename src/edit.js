@@ -11,16 +11,26 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+    useBlockProps,
+    __experimentalUnitControl as UnitControl,
+    useSetting,
+} from '@wordpress/block-editor';
 
-import { useState, useEffect } from '@wordpress/element';
+import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
 
-import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import {
+    Button,
+    BaseControl,
+    __experimentalToolsPanelItem as ToolsPanelItem,
+    __experimentalUseCustomUnits as useCustomUnits,
+} from '@wordpress/components';
 
-import { Button } from '@wordpress/components';
+import { useInstanceId } from '@wordpress/compose';
 
 import { Icon } from '@wordpress/components';
- 
+
+const COVER_MIN_HEIGHT = 50;
 const PlusIcon = () => <Icon icon="plus" />;
 
 /**
@@ -39,11 +49,11 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, setAttributes, clientId, }) {
 
     const ALLOWED_MEDIA_TYPES = ['image'];
 
-    const { images } = attributes;
+    const { images, minHeight, minHeightUnit } = attributes;
 
     const removeImg = (removeIndex) => {
         const newImages = images.filter((img, i) => {
@@ -56,8 +66,53 @@ export default function Edit({ attributes, setAttributes }) {
         })
     }
 
+    const instanceId = useInstanceId(UnitControl);
+    const inputId = `block-cover-height-input-${instanceId}`;
+    const isPx = minHeightUnit === 'px';
+
+    const min = isPx ? COVER_MIN_HEIGHT : 0;
+
+    const units = useCustomUnits({
+        availableUnits: useSetting('spacing.units') || [
+            'px',
+            'em',
+            'rem',
+            'vw',
+            'vh',
+        ],
+        defaultValues: { px: '430', em: '20', rem: '20', vw: '20', vh: '50' },
+    });
+
     return (
         <p {...useBlockProps()}>
+
+            <InspectorControls __experimentalGroup="dimensions">
+                <ToolsPanelItem
+                    hasValue={() => !!minHeight}
+                    label={__('Minimum height')}
+                    isShownByDefault={true}
+                    panelId={clientId}
+                >
+                    <BaseControl label={__('Minimum height of slider')} id={inputId}>
+                        <UnitControl
+                            id={inputId}
+                            min={min}
+                            onBlur={(newMinHeight) => setAttributes({ minHeight: newMinHeight })}
+                            onChange={(newMinHeight) => {
+                                console.log('newMinHeight', newMinHeight)
+                                setAttributes({ minHeight: newMinHeight })
+                                console.log('attributes', attributes)
+                            }}
+                            onUnitChange={(nextUnit) => setAttributes({ minHeightUnit: nextUnit })}
+                            style={{ maxWidth: 80 }}
+                            unit={minHeightUnit}
+                            units={units}
+                            value={minHeight}
+                        />
+                    </BaseControl>
+                </ToolsPanelItem>
+            </InspectorControls>
+
             <h3 className="block-title">
                 {__(
                     'Gutenberg Slideshow'
@@ -78,13 +133,9 @@ export default function Edit({ attributes, setAttributes }) {
 
             <MediaUploadCheck>
                 <MediaUpload
-
                     multiple={true}
-
                     onSelect={(media) => {
-
                         let updatedImages = [];
-
                         media.forEach((mediaItem) => {
                             updatedImages = [
                                 ...updatedImages,
@@ -93,22 +144,17 @@ export default function Edit({ attributes, setAttributes }) {
                                 }
                             ]
                         })
-
                         setAttributes({
                             images: [
                                 ...images,
                                 ...updatedImages
                             ]
                         })
-
                     }}
-
                     allowedTypes={ALLOWED_MEDIA_TYPES}
-
                     render={({ open }) => (
                         <Button icon={PlusIcon} className="add-image" variant="secondary" onClick={open}>Add Gallery Image</Button>
                     )}
-
                 />
             </MediaUploadCheck>
         </p>
