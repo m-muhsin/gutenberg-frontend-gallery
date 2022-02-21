@@ -93,7 +93,7 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
                     isShownByDefault={true}
                     panelId={clientId}
                 >
-                    <BaseControl label={__('Minimum height of slider')} id={inputId}>
+                    <BaseControl label={__('Height of slider')} id={inputId}>
                         <UnitControl
                             id={inputId}
                             min={min}
