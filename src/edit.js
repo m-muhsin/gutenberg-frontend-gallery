@@ -69,7 +69,7 @@ export default function Edit({ attributes, setAttributes }) {
                         ? images.map((image, index) =>
                             <div className="single-image-container">
                                 <span className="remove-btn" onClick={() => removeImg(index)}>&times;</span>
-                                <img className={`gallery-image active`} src={image.url} alt={image.alt} />
+                                <img className={`gallery-image current`} src={image.url} alt={image.alt} />
                             </div>
                         )
                         : 'No images have been added to the Gallery.'

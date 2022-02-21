@@ -33,23 +33,19 @@ export default function save({ attributes }) {
 		<div {...useBlockProps.save()}>
 			<div class="gallery-container" id="imagesContainer" data-images={dataImages}>
 
-				{
-					images.length > 1 &&
-					<button class="btn-left">Previous</button>
-				}
 
-				<div class="gallery-image-container">
+				<div class="gallery-image-container slides">
 					{
 						images.length > 0
-						? images.map((image, index) => <img className={index === 0 ? "gallery-image active" : "gallery-image"} src={image.url} alt={image.alt} />)
+						? images.map((image, index) => <img className={index === 0 ? "gallery-image slide current" : "gallery-image slide"} src={image.url} alt={image.alt} />)
 						: 'No images have been added to the Gallery.'
 					}
 				</div>
 
-				{
-					images.length > 1 &&
-					<button class="btn-right">Next</button>
-				}
+				<div class="controls">
+					<button class="goToPrev">← Prev</button>
+					<button class="goToNext">Next →</button>
+				</div>
 			</div>
 		</div>
 

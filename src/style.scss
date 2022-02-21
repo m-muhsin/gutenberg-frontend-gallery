@@ -5,59 +5,52 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.gallery-container {
-	display: flex;
-}
-
-.gallery-image-container {
-	display: flex;
-	width: 100%;
-	
-	img {
-		margin: auto;
-		width: 100%;
-	}
-
-	img:not(.active) {
-		display: none;
-	}
-}
-
-.single-image-container {
-	border: 2px solid Black;
-	margin: 10px;
-	overflow: visible;
+.slides {
+	min-height: 360px;
+	border:2px solid black;
 	position: relative;
-}
-
-
-// Buttons
-
-#imagesContainer {
-	button.btn-left, button.btn-right {
-		width: 100px;
-		padding: 0;
-		border: none;
-	}
-
-	button.btn-right {
-		margin-left: -100px;
-		background: linear-gradient(90deg, transparent, #000000ba);
-		&:hover, &:focus {
-			color: white;
-			background: linear-gradient(90deg, transparent, black);
-			outline: none;;
-		}
-	}
-
-	button.btn-left {
-		margin-right: -100px;
-		z-index: 10;
-		background: linear-gradient(90deg, #000000ba, transparent);
-		&:hover, &:focus {
-			color: white;
-			background: linear-gradient(90deg, black, transparent);
-			outline: none;
-		}
-	}
-}
+	margin: 0 auto;
+	overflow: hidden;
+  }
+  
+  .slide {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	color: white;
+	font-size: 100px;
+	font-family: sans-serif;
+	border: 5px solid white;
+	transition: all .25s;
+	transform: translateX(-200%);
+	object-fit: cover;
+  }
+  
+  .slide.next + .slide {
+	transform: translateX(200%);
+  }
+  
+  .slide.prev {
+	z-index: 10;
+	transform: translateX(-100%);
+  }
+  .slide.current {
+	z-index: 10;
+	transform: translateX(0);
+  }
+  .slide.next {
+	z-index: 10;
+	transform: translateX(100%);
+  }
+  
+  .controls {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+	gap: 2rem;
+	justify-content: center;
+	padding: 2rem;
+  }
+  
