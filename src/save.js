@@ -34,7 +34,7 @@ export default function save({ attributes }) {
 			<div class="gallery-container" id="imagesContainer" data-images={dataImages}>
 
 
-				<div class="gallery-image-container slides">
+				<div class="slides">
 					{
 						images.length > 0
 						? images.map((image, index) => <img className={index === 0 ? "gallery-image slide current" : "gallery-image slide"} src={image.url} alt={image.alt} />)
