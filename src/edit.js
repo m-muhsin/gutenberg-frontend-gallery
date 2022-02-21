@@ -16,7 +16,7 @@ import {
     __experimentalUnitControl as UnitControl,
     useSetting,
 } from '@wordpress/block-editor';
-
+import { useState } from '@wordpress/element';
 import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
 
 import {
@@ -53,7 +53,30 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
 
     const ALLOWED_MEDIA_TYPES = ['image'];
 
-    const { images, minHeight, minHeightUnit } = attributes;
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    let { images, minHeight, minHeightUnit } = attributes;
+
+    images = images.map((image, index) => {
+
+        if (index === currentIndex) {
+            image.className = "slide current"
+        } else if (index === currentIndex - 1) {
+            image.className = "slide prev"
+        } else if (index === currentIndex + 1) {
+            image.className = "slide next"
+        } else {
+            image.className = "slide"
+        }
+
+        if (currentIndex === images.length - 1) {
+            images[0].className = "slide next"
+        } else if (currentIndex === 0) {
+            images[images.length - 1].className = "slide prev"
+        }
+
+        return image
+    });
 
     const removeImg = (removeIndex) => {
         const newImages = images.filter((img, i) => {
@@ -82,6 +105,18 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
         ],
         defaultValues: { px: '430', em: '20', rem: '20', vw: '20', vh: '50' },
     });
+
+    const setNextImage = () => {
+        setCurrentIndex(currentIndex => {
+            return currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+        });
+    }
+
+    const setPrevImage = () => {
+        setCurrentIndex(currentIndex => {
+            return currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+        });
+    }
 
     return (
         <p {...useBlockProps()}>
@@ -118,17 +153,23 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
                     'Gutenberg Slideshow'
                 )}
             </h3>
-            <div className="gallery-image-container--edit">
+
+            <div className="slides">
                 {
                     images.length > 0
                         ? images.map((image, index) =>
-                            <div className="single-image-container">
-                                <span className="remove-btn" onClick={() => removeImg(index)}>&times;</span>
-                                <img className={`gallery-image current`} src={image.url} alt={image.alt} />
+                            <div className={image.className}>
+                                <span className="remove-btn" onClick={() => removeImg(index)}>&times; Remove image</span>
+                                <img src={image.url} alt={image.alt} />
                             </div>
                         )
                         : 'No images have been added to the Gallery.'
                 }
+            </div>
+
+            <div class="controls">
+                <button class="goToPrev" onClick={setPrevImage}>← Prev</button>
+                <button class="goToNext" onClick={setNextImage}>Next →</button>
             </div>
 
             <MediaUploadCheck>

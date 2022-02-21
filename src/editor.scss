@@ -8,32 +8,24 @@
     text-align: center;
 }
 
-.gallery-image-container--edit {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    .single-image-container img {
-        height: 108px;
-        margin: 5px;
-    }
+.slides .slide {
+    border: none;
 }
-
 // Buttons
 
 .remove-btn {
-	border-radius: 50%;
     position: absolute;
-    background: black;
+    background: red;
     color: white;
-    top: -18px;
-    right: -14px;
-    width: 36px;
+    bottom: -14px;
+    right: 0;
+    width: 100%;
     text-align: center;
-    height: 36px;
-    padding: 0;
-	cursor: pointer;
+    height: 38px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 auto 12px;
 }
 
 button.add-image {
