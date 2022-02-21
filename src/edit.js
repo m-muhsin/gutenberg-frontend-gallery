@@ -154,7 +154,7 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
                 )}
             </h3>
 
-            <div className="slides">
+            <div className="slides" style={minHeight ? { minHeight: minHeight } : null}>
                 {
                     images.length > 0
                         ? images.map((image, index) =>

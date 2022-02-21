@@ -33,7 +33,7 @@ export default function save({ attributes }) {
 		<div {...useBlockProps.save()}>
 			<div class="slides-container" data-images={dataImages}>
 
-				<div class="slides" style={minHeight ? { minHeight } : false}>
+				<div class="slides" style={minHeight ? { minHeight } : null}>
 					{
 						images.length > 0
 							? images.map(image => <img className="slide" src={image.url} alt={image.alt} />)
