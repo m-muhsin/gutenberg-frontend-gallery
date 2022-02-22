@@ -27,6 +27,24 @@
 		transform: translateX(-200%);
 		object-fit: cover;
 	}
+
+	.image {
+		display: none;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		align-content: center;
+		justify-content: center;
+		color: white;
+		font-size: 100px;
+		font-family: sans-serif;
+		border: 5px solid white;
+		transition: all .25s;
+		object-fit: cover;
+	}
+	.image.active {
+		display: grid;
+	}
 }
 
 .slide.next + .slide {

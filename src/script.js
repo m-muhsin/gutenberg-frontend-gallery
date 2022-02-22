@@ -25,11 +25,17 @@ function Slider(slider) {
 
     function applyClasses() {
 
-        current.classList.add('current');
-        prev.classList.add('prev');
-        next.classList.add('next');
+        const allSlides = Array.from(slider.querySelector('.slides > img'));
 
-
+        if (allSlides.length <= 3) {
+            current.classList.add('active');
+            prev.classList.remove('active');
+            next.classList.remove('active');
+        } else {
+            current.classList.add('current');
+            prev.classList.add('prev');
+            next.classList.add('next');
+        }
     }
 
     function move(direction) {

@@ -36,7 +36,7 @@ export default function save({ attributes }) {
 				<div class="slides" style={minHeight ? { minHeight } : null}>
 					{
 						images.length > 0
-							? images.map(image => <img className="slide" src={image.url} alt={image.alt} />)
+							? images.map(image => <img className={images.length <= 3 ? `image` : `slide`} src={image.url} alt={image.alt} />)
 							: 'No images have been added to the Gallery.'
 					}
 				</div>

@@ -23,7 +23,7 @@
 		"images": {
 			"type": "array",
 			"source": "query",
-			"selector": "img.slide",
+			"selector": ".slides img",
 			"query": {
 				"url": {
 					"type": "string",

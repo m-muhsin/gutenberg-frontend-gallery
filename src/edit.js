@@ -59,22 +59,29 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
 
     images = images.map((image, index) => {
 
-        if (index === currentIndex) {
-            image.className = "slide current"
-        } else if (index === currentIndex - 1) {
-            image.className = "slide prev"
-        } else if (index === currentIndex + 1) {
-            image.className = "slide next"
+        if (images.length <= 3) {
+            if (index === currentIndex) {
+                image.className = "image active"
+            } else {
+                image.className = "image"
+            }
         } else {
-            image.className = "slide"
-        }
+            if (index === currentIndex) {
+                image.className = "slide current"
+            } else if (index === currentIndex - 1) {
+                image.className = "slide prev"
+            } else if (index === currentIndex + 1) {
+                image.className = "slide next"
+            } else {
+                image.className = "slide"
+            }
 
-        if (currentIndex === images.length - 1) {
-            images[0].className = "slide next"
-        } else if (currentIndex === 0) {
-            images[images.length - 1].className = "slide prev"
+            if (currentIndex === images.length - 1) {
+                images[0].className = "slide next"
+            } else if (currentIndex === 0) {
+                images[images.length - 1].className = "slide prev"
+            }
         }
-
         return image
     });
 
