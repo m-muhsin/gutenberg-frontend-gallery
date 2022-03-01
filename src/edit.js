@@ -30,8 +30,10 @@ import { useInstanceId } from '@wordpress/compose';
 
 import { Icon } from '@wordpress/components';
 
-const COVER_MIN_HEIGHT = 50;
 const PlusIcon = () => <Icon icon="plus" />;
+
+const ALLOWED_MEDIA_TYPES = ['image'];
+const COVER_MIN_HEIGHT = 50;
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -51,8 +53,7 @@ import './editor.scss';
  */
 export default function Edit({ attributes, setAttributes, clientId, }) {
 
-    const ALLOWED_MEDIA_TYPES = ['image'];
-
+    // To hold the current slide.
     const [currentIndex, setCurrentIndex] = useState(0);
 
     let { images, minHeight, minHeightUnit } = attributes;
@@ -76,8 +77,11 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
                 image.className = "slide"
             }
 
+            // When it reaches the end.
             if (currentIndex === images.length - 1) {
                 images[0].className = "slide next"
+
+            // When it wants to go before beginning.
             } else if (currentIndex === 0) {
                 images[images.length - 1].className = "slide prev"
             }
@@ -85,6 +89,7 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
         return image
     });
 
+    // Using Array filter to remove the delted image.
     const removeImg = (removeIndex) => {
         const newImages = images.filter((img, i) => {
             if (removeIndex !== i) {
@@ -96,14 +101,16 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
         })
     }
 
+    // For dynamic height.
     const instanceId = useInstanceId(UnitControl);
     const inputId = `block-cover-height-input-${instanceId}`;
     const isPx = minHeightUnit === 'px';
 
     const min = isPx ? COVER_MIN_HEIGHT : 0;
 
+    // Units to be selected from side settings panel.
     const units = useCustomUnits({
-        availableUnits: useSetting('spacing.units') || [
+        availableUnits: [
             'px',
             'em',
             'rem',
@@ -157,7 +164,7 @@ export default function Edit({ attributes, setAttributes, clientId, }) {
 
             <h3 className="block-title">
                 {__(
-                    'Gutenberg Slideshow'
+                    'Simple Image Slider'
                 )}
             </h3>
 
